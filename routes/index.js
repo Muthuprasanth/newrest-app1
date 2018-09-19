@@ -4,7 +4,6 @@ var path = require('path');
 var request = require('request');
 var textract = require('textract');
 var sppull = require("sppull").sppull;
-var Sendgrid = require("sendgrid-web");
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 var https = require ('https');
