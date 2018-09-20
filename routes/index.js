@@ -37,12 +37,12 @@ router.get('/tasks', function(req, res, next) {
       promiseTOReadJDContent.then(function (JDcontent) {
         JDdetail = JDcontent;
         console.log("JDdetail is", JDdetail);
-        /*let promiseToGetResumekeyphrases = textanalyics(resumedetail,resumedetail,res);
+        let promiseToGetResumekeyphrases = textanalyics(resumedetail,resumedetail,res);
         promiseToGetResumekeyphrases.then(function (resumephrases) {
           resumedetail = resumephrases[1];
           res = resumephrases[2];
-         // console.log("response_2",res);
-        //  console.log("resumephrase is", resumephrases);
+          console.log("response_2",res);
+          console.log("resumephrase is", resumephrases);
           resumephrase = updatingphrases(resumephrases[0], 0);
           console.log("Updated resumephrase is", resumephrase);
           let promiseToGetJDkeyphrases = textanalyics(JDdetail,resumedetail,res);
@@ -53,14 +53,14 @@ router.get('/tasks', function(req, res, next) {
             JDphrase = updatingphrases(JDphrases[0], 1);
            // console.log("Updated JDphrase is", JDphrases);
 
-             let promiseToGetJDintent  =  helper2(JDphrase,resumephrase,phrasecount,resumedetail,res);
+            // let promiseToGetJDintent  =  helper2(JDphrase,resumephrase,phrasecount,resumedetail,res);
 
           }).catch(function (error) {
             console.log("Error in Getting JD Keyphrases is", error.message);
           });
         }).catch(function (error) {
           console.log("Error in Getting Resume Keyphrases is", error.message);
-        });*/
+        });
       }).catch(function (error) {
         console.log("Error in Getting JD content is", error.message);
       });
@@ -362,7 +362,7 @@ function textanalyics(text,resumedetail,res) {
   var options3 = {
     method: 'post',
     headers: {
-      'Ocp-Apim-Subscription-Key':'5675f88386734d2a9779bb5eaf48ffea',
+      'Ocp-Apim-Subscription-Key':'41299d85e3cf45d0acc70606ddac94e0',
       // 'Content-Type':'application/json',
       // 'Accept':'application/json',
     },
