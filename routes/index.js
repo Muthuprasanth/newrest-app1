@@ -8,6 +8,10 @@ var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 var https = require ('https');
 
+var url = require('url');
+var juice = require('juice');
+const sgMail = require('@sendgrid/mail');
+
 var express = require('express');
 var router = express.Router();
 
@@ -17,18 +21,19 @@ var sendgridCredentials = [];
 /* GET home page. */
 router.get('/tasks', function(req, res, next) {
   //var filename = req.query.filename;
-  var filename = "mahesh_1.docx";
+  //var filename = "mahesh_1.docx";
+  var filename = "ramprasad_1.docx";
   var jdfilename = "Jdazure.docx";
   var resumedetail = "", JDdetail = "";
   var resumekeyphrase, JDkeyphrase;
   console.log("inside main function phrasecount is ", phrasecount);
-  res.send("HEllo new app");
+  //res.send("HEllo new app");
   let promiseTOGetsendgridCredentials = getSendgrid(res);
   promiseTOGetsendgridCredentials.then(function (Credentials) {
     sendgridCredentials[0] = Credentials[0];
     sendgridCredentials[1] = Credentials[1];
     res = Credentials[2];
-    //console.log("sendgridCredentials is", sendgridCredentials);
+    console.log("sendgridCredentials is", sendgridCredentials);
     let promiseTOReadResumeContent = getFile(filename, 'Shared%20Documents', 'Resumes');
     promiseTOReadResumeContent.then(function (resumecontent) {
       resumedetail = resumecontent;
@@ -53,7 +58,7 @@ router.get('/tasks', function(req, res, next) {
             JDphrase = updatingphrases(JDphrases[0], 1);
            // console.log("Updated JDphrase is", JDphrases);
 
-            // let promiseToGetJDintent  =  helper2(JDphrase,resumephrase,phrasecount,resumedetail,res);
+            let promiseToGetJDintent  =  helper2(JDphrase,resumephrase,phrasecount,resumedetail,res);
 
           }).catch(function (error) {
             console.log("Error in Getting JD Keyphrases is", error.message);
@@ -548,6 +553,8 @@ function getFile(filename, foldername, localfolder) {
     // });
   });
 }
-
+function getEmailsFromString(text) {
+  return text.match(/([a-zA-Z0-9._+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+}
 
 module.exports = router;
