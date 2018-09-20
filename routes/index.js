@@ -20,9 +20,9 @@ var sendgridCredentials = [];
 
 /* GET home page. */
 router.get('/tasks', function(req, res, next) {
-  //var filename = req.query.filename;
+  var filename = req.query.filename;
   //var filename = "mahesh_1.docx";
-  var filename = "ramprasad_1.docx";
+  //var filename = "ramprasad_1.docx";
   var jdfilename = "Jdazure.docx";
   var resumedetail = "", JDdetail = "";
   var resumekeyphrase, JDkeyphrase;
