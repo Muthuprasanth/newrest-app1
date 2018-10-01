@@ -83,10 +83,10 @@ function getSendgrid(res) {
   {
     userName: 'Muthuprasanth038', // update me
     password: 'Sirius@25', // update me
-    server: 'sendgridcredentials.database.windows.net', // update me
+    server: 'sendgridcredentials1.database.windows.net', // update me
     options:
     {
-      database: 'Sendusercred', //update me
+      database: 'Sendusercred1', //update me
       encrypt: true
     }
   }
@@ -304,7 +304,7 @@ function getIntents(resumekeyphrase) {
   //var luisserverurl = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/390a8529-08d9-4357-ba94-d9c679e383cd?subscription-key=f63fdc559ec44b90a3f4b84b46ed9de8&verbose=true&timezoneOffset=0&q=";
   //var luisserverurl ="https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/6ed560f1-638a-4937-ba81-526ae022b8b0?subscription-key=68122825e63d457f91413c632fc73cf7&verbose=true&timezoneOffset=0&q=";
    var luisserverurl = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/b9096f54-d27f-48a4-918d-d165f3ae0df7?subscription-key=ef62dce222b542b9a495f25120dc1ccc&verbose=true&timezoneOffset=0&q="+resumekeyphrase;
-
+   var luisserverurl = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/af03578f-3913-4308-9cb4-535a5407b681?subscription-key=46da208aabf64fa4a0e531803b8f5bec&timezoneOffset=-360&q="+resumekeyphrase;
   var options4 = {
     method: 'get',
     url:luisserverurl,
@@ -367,7 +367,7 @@ function textanalyics(text,resumedetail,res) {
   var options3 = {
     method: 'post',
     headers: {
-      'Ocp-Apim-Subscription-Key':'41299d85e3cf45d0acc70606ddac94e0',
+      'Ocp-Apim-Subscription-Key':'30279aa6ec1e407c99291454b6becdd9',
       // 'Content-Type':'application/json',
       // 'Accept':'application/json',
     },
